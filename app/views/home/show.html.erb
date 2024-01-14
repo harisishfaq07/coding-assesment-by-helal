@@ -1,0 +1,13 @@
+<br><br><br><br><br>
+<%= search_form_for @search, url: root_path, remote: true do |f| %>
+    <%= f.label :actor_cont, "Search by Actor" %>
+    <%= f.search_field :actor_cont %>
+    <%= f.submit "Search" %>
+<% end %>
+<br>
+<%= search_form_for @search , url: root_path, remote: true do |f| %>
+    <%= f.select :created_at , ['ASC', 'DESC'] %>
+    <%= f.submit 'Sort by reviews' %>
+<% end %>
+
+<%= render :partial => 'home/movie_table', :movies => @movies %>

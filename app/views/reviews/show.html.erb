@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Reviews</h2>
+<h3>Movie Name - <%= @movie_name %></h3>
+<h3>Total Reviews - <%= @reviews.count %> </h3>
+
+<table>
+  <tr>
+    <th>Review By</th>
+    <th>Stars</th>
+    <th>Review</th>
+  </tr>
+  <% @reviews.each do |review| %>
+  <tr>
+    <td><%= review.user %></td>
+    <td><%= review.stars %></td>
+    <td><%= review.review %></td>
+  </tr>
+  <% end %>
+</table>
+
+</body>
+</html>

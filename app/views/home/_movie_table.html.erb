@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Movies List</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th>Actor</th>
+    <th>Filming Location</th>
+    <th>Country</th>
+    <th>Reviews</th>
+  </tr>
+  <% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.movie %></td>
+    <td><%= movie.description %></td>
+    <td><%= movie.year %></td>
+    <td><%= movie.director %></td>
+    <td><%= movie.actor %></td>
+    <td><%= movie.filming_location %></td>
+    <td><%= movie.country %></td>
+    <% if movie.reviews.count > 0 %>
+    <td><%= link_to 'See Reviews', review_path(:id => movie.id, :movie_name => movie.movie) %></td>
+    <% else %>
+    <td>No Review</td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
+
+</body>
+</html>
